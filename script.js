@@ -1,6 +1,7 @@
 const todo_data = document.getElementById('user_input');
 const todolist = document.getElementById('todolist');
 
+//Add a new To do List item
 function addTodo() {
     const new_todo = todo_data.value;
     const new_list_item = document.createElement('li');
@@ -13,6 +14,7 @@ function addTodo() {
     todo_data.value = "";
 }
 
+//Update the To do list by removing checked items
 function updateTodos() {
     const todos = todolist.querySelectorAll('input[type="checkbox"]');
     for (let i = 0; i < todos.length; i++) {
@@ -24,6 +26,7 @@ function updateTodos() {
     alert("Todo List Updated Successfully");
 }
 
+//Clear all To Do list items...Duhh
 function clearAllTodos() {
     const todos = todolist.querySelectorAll('.new-todo');
     todos.forEach(todo => {
