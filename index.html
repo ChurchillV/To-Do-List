@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoList</title>
+</head>
+<body>
+    <div class="header">A SIMPLE TO DO LIST</div>
+    <div id="todos">
+        <ul id="todolist" style=" list-style: none;">
+            <li class="new-todo"> 
+                <input type="checkbox"> Try something New
+            </li>
+        </ul>
+    </div>
+
+    <input type="text" id="user_input">
+    <button id="submit" onclick="addTodo()">Add Todo</button>
+    <button id="update" onclick="updateTodos()">Update Todos</button>
+    <button id="submit" onclick="clearAllTodos()">Clear</button>
+</body>
+
+    <script>
+        const todo_data = document.getElementById('user_input');
+        const todolist = document.getElementById('todolist');
+
+        function addTodo() {
+            const new_todo = todo_data.value;
+            const new_list_item = document.createElement('li');
+            new_list_item.classList.add('new-todo');
+            const new_checkbox = document.createElement('input');
+            new_checkbox.type = 'checkbox';
+            new_list_item.appendChild(new_checkbox);
+            new_list_item.appendChild(document.createTextNode(new_todo));
+            todolist.appendChild(new_list_item);
+            todo_data.value = "";
+        }
+
+        function updateTodos() {
+            const todos = todolist.querySelectorAll('input[type="checkbox"]');
+            for (let i = 0; i < todos.length; i++) {
+                if (todos[i].checked) {
+                    const done_todo = todos[i].parentNode;
+                    todolist.removeChild(done_todo);
+                }
+            }
+            alert("Todo List Updated Successfully");
+        }
+
+        function clearAllTodos() {
+            const todos = todolist.querySelectorAll('.new-todo');
+            todos.forEach(todo => {
+                while(todo.firstChild) {
+                    todo.removeChild(todo.firstChild);
+                }
+            })
+            alert("Todo List Cleared");
+        }
+    </script>
+</html>
