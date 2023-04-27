@@ -3,23 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TodoList</title>
 </head>
 <body>
-    <div class="header">A SIMPLE TO DO LIST</div>
-    <div id="todos">
-        <ul id="todolist" style=" list-style: none;">
-            <li class="new-todo"> 
-                <input type="checkbox"> Try something New
-            </li>
-        </ul>
-    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">CHECKD: A simple To-do list</span>
+        </div>
+    </nav>
 
-    <input type="text" id="user_input">
-    <button id="submit" onclick="addTodo()">Add Todo</button>
-    <button id="update" onclick="updateTodos()">Update Todos</button>
-    <button id="submit" onclick="clearAllTodos()">Clear</button>
+    
+
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-6 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Your To Do List</h5>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <div id="todos">
+                                    <ul id="todolist" style=" list-style: none;">
+                                        <li class="new-todo">  
+                                            <h6> <input type="checkbox"> Try something New </h6>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10 lg-10 sm-12 offset-md-1 offset-lg-1">
+                                <input type="text" id="user_input" placeholder="Eg. Take out the trash" class="form-control sm-12">
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-lg-4 md-4 sm-12 mb-2 offset-lg-1">
+                                <button id="submit" onclick="addTodo()" class="form-control btn btn-success">Add Todo</button>
+                            </div>
+                            <div class="col-lg-3 mb-2 md-4 sm-12 mb-2">
+                                <button id="update" onclick="updateTodos()"  class="form-control btn btn-light btn-outline-dark">Update Todos</button>
+                            </div>
+                            <div class="col-lg-3 mb-2 md-4 sm-12 mb-2">
+                                <button id="submit" onclick="clearAllTodos()" class="form-control btn btn-dark">Clear</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
     <script src="script.js"></script>
