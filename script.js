@@ -7,7 +7,7 @@ let isPopUp = false;
 
 //Add a new To do List item
 function addTodo() {
-    const new_todo = todo_data.value;
+    const new_todo = ' ' + todo_data.value; //Space before to do item for some consistency
     const new_list_item = document.createElement('li');
     new_list_item.classList.add('new-todo');
     const new_checkbox = document.createElement('input');
