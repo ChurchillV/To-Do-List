@@ -2,6 +2,8 @@ const todo_data = document.getElementById('user_input');
 const todolist = document.getElementById('todolist');
 let popup_info = document.getElementById('info');
 const popup = document.getElementById('popup');
+const bg = document.getElementById('container');
+let isPopUp = false;
 
 //Add a new To do List item
 function addTodo() {
@@ -27,7 +29,7 @@ function updateTodos() {
             todolist.removeChild(done_todo);
         }
     }
-    //Display pop up
+//Display pop up
     displayPopup();
     popup_info.textContent = "To do list updated successfully";
 }
@@ -46,7 +48,17 @@ function clearAllTodos() {
 
 //Display pop up
 function displayPopup() {
-    popup.style.visibility = "visible";
-    popup.style.top = "50%";
-    popup.style.transform = "transform: translate(-50%, -50%) scale(1px)";
+    if (isPopUp == false) {
+        popup.style.visibility = "visible";
+        popup.style.top = "50%";
+        popup.style.transform = "transform: translate(-50%, -50%) scale(1)";
+        bg.style.filter = "blur(3px)";
+        isPopUp = true;
+    }
+    else {
+        popup.style.visibility = "hidden";
+        popup.style.top = "0";
+        popup.style.transform = "transform: translate(-50%, -50%) scale(0.1)";
+        bg.style.filter = "none";
+    }
 }
