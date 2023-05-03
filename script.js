@@ -1,5 +1,7 @@
 const todo_data = document.getElementById('user_input');
 const todolist = document.getElementById('todolist');
+let popup_info = document.getElementById('info');
+const popup = document.getElementById('popup');
 
 //Add a new To do List item
 function addTodo() {
@@ -12,9 +14,11 @@ function addTodo() {
     new_list_item.appendChild(document.createTextNode(new_todo));
     todolist.appendChild(new_list_item);
     todo_data.value = "";
+    displayPopup();
+    popup_info.textContent = "Task added successfully";
 }
 
-//Update the To do list by removing checked items
+//Update the To do list by removing checked items, Display pop-up
 function updateTodos() {
     const todos = todolist.querySelectorAll('input[type="checkbox"]');
     for (let i = 0; i < todos.length; i++) {
@@ -23,7 +27,9 @@ function updateTodos() {
             todolist.removeChild(done_todo);
         }
     }
-    alert("Todo List Updated Successfully");
+    //Display pop up
+    displayPopup();
+    popup_info.textContent = "To do list updated successfully";
 }
 
 //Clear all To Do list items...Duhh
@@ -34,5 +40,13 @@ function clearAllTodos() {
             todo.removeChild(todo.firstChild);
         }
     })
-    alert("Todo List Cleared");
+    displayPopup();
+    popup_info.textContent = "To do list cleared successfully";
+}
+
+//Display pop up
+function displayPopup() {
+    popup.style.visibility = "visible";
+    popup.style.top = "50%";
+    popup.style.transform = "transform: translate(-50%, -50%) scale(1px)";
 }
