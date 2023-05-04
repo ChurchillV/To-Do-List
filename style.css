@@ -13,9 +13,8 @@
     transition: transform 0.4s , top 0.4s;
 }
 
-.popup-img  {
+#popup-img  {
     width: 60px;
-    border-radius: 6px;
 }
 
 .new-todo {
