@@ -3,7 +3,6 @@ const todolist = document.getElementById('todolist');
 let popup_info = document.getElementById('info');
 const popup = document.getElementById('popup');
 const bg = document.getElementById('container');
-let isPopUp = false;
 
 //Add a new To do List item
 function addTodo() {
@@ -56,18 +55,15 @@ function clearAllTodos() {
 
 //Display pop up
 function displayPopup() {
-    if (isPopUp == false) {
         popup.style.visibility = "visible";
         popup.style.top = "50%";
         popup.style.transform = "transform: translate(-50%, -50%) scale(1)";
         bg.style.filter = "blur(3px)";
-        isPopUp = true;
-    }
-    else {
+        
+        //Pop up disappears after 5.5 milliseconds
+        setTimeout(() => {
         popup.style.visibility = "hidden";
         popup.style.top = "0";
         popup.style.transform = "transform: translate(-50%, -50%) scale(0.1)";
-        bg.style.filter = "none";
-        isPopUp = false;
+        bg.style.filter = "none"}, 550);
     }
-}
